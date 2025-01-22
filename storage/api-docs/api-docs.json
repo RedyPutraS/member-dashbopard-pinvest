@@ -1,0 +1,238 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "PINVEST BACKEND API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/application": {
+            "get": {
+                "tags": [
+                    "Application"
+                ],
+                "operationId": "b855c87fe6a085bd7a712ce78f265412",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of application."
+                    }
+                }
+            }
+        },
+        "/api/pilearning/article": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "9d8681bc9a9f5b721a8d0aacf5726c0b",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of article."
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "description": "Login with email and password",
+                "operationId": "d618a255475240ba3d40cc39692cd924",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "abc123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Display User Login successful.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pilearning/event/?limit=6&start=0&category=webinar": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "54d610252f81510e66df8f9a99439939",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of webinar."
+                    }
+                }
+            }
+        },
+        "/api/pilearning/event/?limit=6&start=0&category=seminar": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "5553f4680914b22d274b80e4fdc89919",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of webinar."
+                    }
+                }
+            }
+        },
+        "/api/pilearning/event/?limit=6&start=0&category=workshop": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "35260a9ac3e22dc73f4217428e7117d3",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of workshop."
+                    }
+                }
+            }
+        },
+        "/api/picircle/directory": {
+            "get": {
+                "tags": [
+                    "PiCircle"
+                ],
+                "operationId": "58d1392ab1f95de9005978ce1bf22b41",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of directory."
+                    }
+                }
+            }
+        },
+        "/api/picircle/forum": {
+            "get": {
+                "tags": [
+                    "PiCircle"
+                ],
+                "operationId": "6594a5c52c863f75c082e12eb1fa4f91",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of forum."
+                    }
+                }
+            }
+        },
+        "/api/faq/general": {
+            "get": {
+                "tags": [
+                    "Faq"
+                ],
+                "operationId": "9d5c63d205809e9a70a04bb1836c28e8",
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "query",
+                        "description": "category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of faq."
+                    }
+                }
+            }
+        },
+        "/api/faq/{app}": {
+            "get": {
+                "tags": [
+                    "Faq"
+                ],
+                "operationId": "251e21b6b80a3c86ac26e1cf8b2dcd0d",
+                "parameters": [
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": "app",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of faq."
+                    }
+                }
+            }
+        },
+        "/api/pilearning/online_course": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "07ae8d4eb82b4cc1dfeaefec27d92c42",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Online Course."
+                    }
+                }
+            }
+        },
+        "/api/pilearning/online_course/{id}": {
+            "get": {
+                "tags": [
+                    "PiLearning"
+                ],
+                "operationId": "00c4fca9497b2f4665e0e9e4caf78922",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Online Course id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of Online Course."
+                    }
+                }
+            }
+        }
+    }
+}
